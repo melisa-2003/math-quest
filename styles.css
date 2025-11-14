@@ -1,0 +1,234 @@
+/* === Global === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    /* improved font stack for zh-Hant and latin text */
+    font-family: "Inter", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+    background: url('math_background.jpg') no-repeat center center fixed;
+    background-size: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    min-height: 100vh;      
+}
+
+.wrap {
+    background: rgba(0,0,0,0.6); /* Translucent background, highlighting a tech-style UI */
+    padding: 28px;               /* more breathing room */
+    border-radius: 12px;
+    color: #fff;
+    max-width: 980px;            /* slightly wider for spacing */
+    width: 92%;
+    box-shadow: 0 0 20px rgba(0,255,255,0.3); /* Tech Halo */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;                   /* larger gaps between blocks */
+}
+
+/* Title */
+header h1 {
+    margin: 0;
+    text-align: center;
+    color: #9fc8ff;
+    text-shadow: 0 0 8px #1e90ff;
+    font-size: 32px;            /* larger, clearer title */
+    letter-spacing: 0.6px;
+    font-weight: 600;
+}
+
+.small {
+    font-size: 14px;            /* slightly bigger for readability */
+    color: #aac4ff;
+    text-align: center;
+}
+
+/* === Center-aligned layout === */
+.center-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* === Question box === */
+.question-box {
+    width: 100%;
+    background: rgba(15, 25, 40, 0.75);
+    padding: 36px;              /* increased padding for focus */
+    border-radius: 10px;
+    border: 1px solid rgba(0, 145, 255, 0.55);
+    box-shadow: 0 0 12px rgba(0, 145, 255, 0.4);
+}
+
+.question-text {
+    font-size: 22px;
+    margin-bottom: 12px;
+    min-height: 88px;           /* taller to emphasize the question area */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+}
+
+/* metadata 如：Difficulty, Number of Questions, Time */
+.meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    color: #b4d1ff;
+    font-size: 14px;
+    gap: 12px;
+}
+
+/* === input === */
+.row {
+    display: flex;
+    gap: 14px;
+    margin-top: 16px;
+    width: 100%;
+    align-items: center;
+}
+
+input[type="number"] {
+    padding: 12px 14px;         /* more comfortable hit area */
+    flex: 1;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+/* === Button Tech Style (keep hover unchanged) === */
+button {
+    padding: 12px 18px;         /* larger buttons to match spacing */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #0066ff, #00bbff);
+    color: #fff;
+    font-size: 15px;
+    transition: 0.2s ease;
+    box-shadow: 0 0 8px rgba(0,150,255,0.5);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(0,180,255,0.7);
+}
+
+/* Ghost button (secondary) */
+button.ghost {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(180,220,255,0.3);
+}
+
+/* === Feedback Area (Correct/Incorrect Prompt) === */
+.feedback {
+    margin-top: 10px;
+    min-height: 28px;
+    font-weight: 700;
+    text-shadow: 0 0 6px rgba(255,255,255,0.6);
+    font-size: 15px;
+}
+
+/* === Progress bar === */
+.progress-wrap {
+    flex: 1;
+    height: 12px;               /* slightly taller for visibility */
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00aaff, #33ddff);
+    box-shadow: 0 0 8px rgba(0,200,255,0.6);
+}
+
+/* === Set Box (Number of Questions / Mode / Instructions) === */
+.settings {
+    margin-top: 22px;
+    width: 100%;
+    text-align: left;
+    background: rgba(15, 25, 40, 0.7);
+    padding: 18px;              /* increase padding for content breathing */
+    border-radius: 10px;
+    border: 1px solid rgba(0, 145, 255, 0.55);
+    box-shadow: 0 0 12px rgba(0, 145, 255, 0.4);
+}
+
+.settings select,
+.settings select option {
+    background-color: rgba(20, 30, 50, 0.9) !important;
+    color: #fff !important;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* === lists === */
+.settings ul {
+    color: #cfe2ff;
+    margin-top: 10px;
+    line-height: 1.6;           /* easier to scan */
+    font-size: 15px;
+}
+
+footer {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Force-hide Play Again if script tries to show it (keeps JS safe) */
+#restartBtn { display: none !important; }
+
+/* center the Start button row */
+.center-actions{
+  display:flex;
+  justify-content:center;
+  width:100%;
+  margin-top:6px;
+}
+
+/* make Start button more prominent */
+button#startBtn{
+  padding:14px 26px;
+  font-size:18px;
+  border-radius:10px;
+  box-shadow: 0 12px 30px rgba(0,150,255,0.18);
+}
+
+/* row that holds the notice and high score; keeps spacing */
+.space-between-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  gap:12px;
+  margin-top:10px;
+}
+
+/* small warning/notice under Start */
+.notice{
+  color:#ffd7a6;
+  font-size:13px;
+  text-align:center;
+}
+
+/* wrapper for start button + notice */
+.start-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+

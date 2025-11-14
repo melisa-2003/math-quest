@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Math Quest</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Full-page container (auto-centered) -->
+  <div class="wrap" role="application">
+
+    <header>
+      <h1>Math Quest</h1>
+      <div class="small">Please select the number of questions and the question types, and the system will suggest suitable learning levels.</div>
+    </header>
+
+    <!-- Main content, single column, centered automatically -->
+    <main class="center-column">
+
+      <div class="question-box" id="questionBox" aria-live="polite">
+        <p class="question-text" id="questionText">Press Start to begin the game</p>
+        <div class="meta">
+          <div class="small">Question <span id="qNum">0</span>/<span id="totalQ">15</span></div>
+          <div class="small">Level <span id="diffLabel">—</span></div>
+          <div class="small timer">Time left <span id="time">00:00</span></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <input id="answerInput" type="number" inputmode="numeric" placeholder="Input ans...">
+        <button id="submitBtn">Submit</button>
+        <button id="skipBtn" class="ghost">Skip</button>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <div class="row">
+        <div class="score">Score: <strong id="score">0</strong></div>
+        <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+
+      <div class="row">
+        <!-- Start button centered and more prominent -->
+        <div class="center-actions">
+          <div class="start-wrap">
+            <button id="startBtn">Start Game</button>
+            <div class="small notice">Once you press Start the game cannot be stopped until it ends.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row space-between-row">
+        <div></div>
+        <div class="small">High Score: <strong id="bestScore">0</strong></div>
+      </div>
+
+      <!-- Settings Area -->
+      <section class="settings">
+        <label class="small">Number of Questions: 
+          <select id="totalSelect">
+            <option value="15">15 questions</option>
+            <option value="20">20 questions</option>
+          </select>
+        </label>
+
+        <label class="small">Mode: 
+          <select id="modeSelect">
+            <option value="ramp">From simple to difficult (step by step)</option>
+            <option value="mixed">Mixed</option>
+            <option value="advanced">Advanced problems (Olympiad Math)</option>
+          </select>
+        </label>
+
+        <div class="result">
+          <strong>Types of questions included：</strong>
+          <ul id="typesList">
+            <li>Basic Operations (Addition, Subtraction, Multiplication)</li>
+            <li>Integer division (with remainder/integer result)</li>
+            <li>Advanced: Two-step or Three-step Operations</li>
+          </ul>
+        </div>
+
+        <div class="result">
+          <strong>System Recommendation：</strong>
+          <div id="recommendation">
+            If preparing for SPM: it is recommended to use mixed difficulty; for training competitions or developing Olympiad-level skills, choose advanced.
+          </div>
+        </div>
+
+        <div class="small">
+          Description: Each question will have a different countdown based on difficulty (Easy 180s / Medium 240s / Hard 300s).
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <small style="color:#9fb4d9">上傳到 GitHub Pages / Netlify / Vercel / CodeSandbox 以符合作業要求</small>
+      <small style="color:#7b99c4">範例實作</small>
+    </footer>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
